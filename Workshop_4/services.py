@@ -30,10 +30,17 @@ products = Table('products', metadata,
 
 @app.get("/hello_ud")
 def hello_ud():
+  """"This method return the message Welcome to Ud
+  
+  """
     return "Welcome to UD!"
 
 @app.get("/products")
 def get_products():
+  """"This method return a product
+  Args : Product
+  Return: Product 
+  """
     query = products.select()
     result = session.execute(query)
     product = result.fetchall()
@@ -42,6 +49,12 @@ def get_products():
 ##Change name of the post to create_products
 @app.post("/create_products")
 def create_product(name: str, description: str):
+    """This method is used to create a product
+    Args: Name(str): Name of the product 
+    Description(str): Description of the product
+
+    Return:  Product
+    """
     query = products.insert().values(name=name, description=description)
     session.execute(query)
     session.commit()

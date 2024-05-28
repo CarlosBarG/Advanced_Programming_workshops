@@ -44,6 +44,7 @@ def get_products():
     query = products.select()
     result = session.execute(query)
     product = result.fetchall()
+##Change the name to product at the return
     return product
 
 ##Change name of the post to create_products
